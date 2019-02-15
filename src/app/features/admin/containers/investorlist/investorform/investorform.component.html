@@ -1,0 +1,90 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title header-form">Add new Investor's Guide</h5>
+            <form [formGroup]="investorForm" (submit)="SaveInvestor()">
+              <div class="row space">
+                <div class="col-6">
+                  <div class="row">
+  
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label class="form-control-label">Investor's Guide Year</label>
+  
+                        <select class="form-control" formControlName="publicationYear">
+                          <option selected="0" value="0">---Select Year---</option>
+                          <option>2015</option>
+                          <option>2016</option>
+                          <option>2017</option>
+                          <option>2018</option>
+                        </select>
+  
+                      </div>
+                    </div>
+  
+  
+  
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label class="form-control-label">Investor's Guide Title</label>
+                        <input type="text" class="form-control" formControlName="publicationTitle">
+                      </div>
+                    </div>
+  
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label class="form-control-label">Investor's Guide Short Details</label>
+                        <input type="text" class="form-control" formControlName="publicationShortDescription">
+                      </div>
+                    </div>
+  
+  
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label class="form-control-label">Investor's Guide Details</label>
+                        <p-editor formControlName="publicationDescription" [style]="{'height':'120px'}"></p-editor>
+                      </div>
+                    </div>
+  
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label class="form-control-label">Select date to set priority* (Speaker with Latest date comes
+                          first on the website)</label>
+                        <input type="text" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" class="form-control"
+                          formControlName="publicationPriority">
+  
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label class="form-control-label">Status</label>
+                        <select class="form-control" formControlName="publicationStatus">
+                          <option>Active</option>
+                          <option>InActive</option>
+                        </select>
+                      </div>
+                    </div>
+  
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <input type="submit" class="btns save-button" value="Save" />
+                  <a routerLink="/admin/investor" class="btns cancel-button">Cancel</a>
+                </div>
+              </div>
+            </form>
+            <div>
+              Valid: {{investorForm.valid}}
+            </div>
+            <pre>
+                {{investorForm.value|json}}              
+              </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

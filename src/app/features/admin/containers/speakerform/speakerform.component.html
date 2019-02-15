@@ -1,0 +1,83 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title header-form">Add Speakers</h5>
+          <form [formGroup]="speakerForm" (submit)="SaveSpeakers()">
+            <div class="row space">
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Name</label>
+                      <input type="text" class="form-control" formControlName="Speaker_name">
+
+                      <p style="color: red" *ngIf="speakerForm.get('Speaker_name').errors?.userNameExists">Not
+                        available</p>
+                        <p class="help-block" *ngIf="speakerForm.get('Speaker_name').hasError('required') && speakerForm.get('Speaker_name').touched">Required</p>
+
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Designation</label>
+                      <input type="text" class="form-control" formControlName="Speaker_designation">
+                      <p class="help-block" *ngIf="speakerForm.get('Speaker_designation').hasError('required')">Required</p>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Description</label>
+                      <input type="text" class="form-control" formControlName="Speaker_description">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Date</label>
+                      <input type="text" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" class="form-control"
+                        formControlName="Speaker_Priority">
+                      <!-- <p-calendar class="form-control calendercss" formControlName="Speaker_Priority"  dataType="date" dateFormat="dd-mm-yy" showIcon="true"></p-calendar> -->
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Status</label>
+                      <select class="form-control" formControlName="Status">
+                        <option>Active</option>
+                        <option>InActive</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label class="form-control-label">Image</label>
+                          <input type="file" class="form-control imgcss" (change)="fileChange($event)" formControlName="Speaker_imgae">
+                          <img [src]="image" *ngIf="image">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <input type="submit" class="btns save-button" value="Save" />
+                <a routerLink="/admin/speaker" class="btns cancel-button">Cancel</a>
+              </div>
+            </div>
+          </form>
+          <div>
+            Valid: {{speakerForm.valid}}
+          </div>
+          <pre>
+              {{speakerForm.value|json}}              
+            </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

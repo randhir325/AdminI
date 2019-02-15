@@ -1,0 +1,68 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title header-form">Add new Watts of Wisdom</h5>
+          <form [formGroup]="wattswisdomForm" (submit)="SaveWattsWisdom()">
+            <div class="row space">
+              <div class="col-6">
+                <div class="row">
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Wisdom Name</label>
+                      <input type="text" class="form-control" formControlName="WisdomName">
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Wisdom Designation</label>
+                      <input type="text" class="form-control" formControlName="WisdomDesignation">
+                      
+                    </div>
+                  </div>
+
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Watts of Wisdom Description</label>
+                      <p-editor formControlName="WisdomDescription" [style]="{'height':'120px'}"></p-editor>
+                     
+                    </div>
+                  </div>
+
+                  
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Status</label>
+                      <select class="form-control" formControlName="Status">
+                        <option>Active</option>
+                        <option>InActive</option>
+                      </select>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <input type="submit" class="btns save-button" value="Save" />
+                <a routerLink="/admin/wattswisdom" class="btns cancel-button">Cancel</a>
+              </div>
+            </div>
+          </form>
+          <div>
+            Valid: {{wattswisdomForm.valid}}
+          </div>
+          <pre>
+              {{wattswisdomForm.value|json}}              
+            </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

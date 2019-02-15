@@ -1,0 +1,100 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title header-form">Add Article</h5>
+          <form [formGroup]="pressForm" (submit)="SavePress()">
+            <div class="row space">
+              <div class="col-6">
+                <div class="row">
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Press Type</label>
+                      <select class="form-control" formControlName="Type">
+                        <option>Press Coverage</option>
+                        <option>Press Release</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Press Title</label>
+                      <input type="text" class="form-control" formControlName="Title">
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Enter Press content here</label>
+                      <p-editor formControlName="Press_content" [style]="{'height':'120px'}"></p-editor>
+                    </div>
+                  </div>
+
+                  
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Extrenal Link</label>
+                      <input type="text" class="form-control" formControlName="external_link">
+                    </div>
+                  </div>
+
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Post Date</label>
+                      <input type="text" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" class="form-control"
+                                  formControlName="PressDate">
+                      
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Publisher Details</label>
+                      <input type="text" class="form-control" formControlName="PublisherDetails">
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Select date to set priority* (Speaker with Latest date comes
+                        first on the website)</label>
+                        <input type="text" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" class="form-control"
+                                  formControlName="Priority_date">
+                     
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Status</label>
+                      <select class="form-control" formControlName="Status">
+                        <option>Active</option>
+                        <option>InActive</option>
+                      </select>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <input type="submit" class="btns save-button" value="Save" />
+                <a routerLink="/admin/press" class="btns cancel-button">Cancel</a>
+              </div>
+            </div>
+          </form>
+          <div>
+            Valid: {{pressForm.valid}}
+          </div>
+          <pre>
+              {{pressForm.value|json}}              
+            </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

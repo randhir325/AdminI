@@ -1,0 +1,64 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title header-form">Add Member Details</h5>
+          <form [formGroup]="memberForm" (submit)="SaveMember()">
+            <div class="row space">
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Member Name</label>
+                      <input type="text" class="form-control" formControlName="MemberName">
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Member URL</label>
+                      <input type="text" class="form-control" formControlName="MemberLink">
+                    </div>
+                  </div>
+                  
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Status</label>
+                      <select class="form-control" formControlName="Status">
+                        <option>Active</option>
+                        <option>InActive</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label class="form-control-label">Image</label>
+                          <input type="file" class="form-control imgcss" (change)="fileChange($event)" formControlName="MemberImage">
+                          <img [src]="image" *ngIf="image">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>              
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <input type="submit" class="btns save-button" value="Save" />
+                <a routerLink="/admin/member" class="btns cancel-button">Cancel</a>
+              </div>
+            </div>
+          </form>
+          <div>
+              Valid: {{memberForm.valid}}
+            </div>
+            <pre>
+              {{memberForm.value|json}}              
+            </pre>
+        </div>      
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Show Data</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+
+</div>
+<div class="modal-body">
+
+  <form [formGroup]="speakerForm" (submit)="SaveSpeaker()">
+    <div class="row space">
+      <div class="col-8">
+        <div class="form-group">
+          <label class="form-control-label">Name</label>
+          <input type="text" class="form-control" formControlName="Speaker_name">
+        </div>
+      </div>
+
+      <div class="col-8">
+        <div class="form-group">
+          <label class="form-control-label">Designation</label>
+          <input type="text" class="form-control" formControlName="Speaker_designation">
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="form-group">
+          <label class="form-control-label">Description</label>
+          <input type="text" class="form-control" formControlName="Speaker_description">
+        </div>
+      </div>
+
+      <div class="col-8">
+        <div class="form-group">
+          <label class="form-control-label">Date</label>
+          <input type="text" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" class="form-control"
+                        formControlName="Speaker_Priority">
+        </div>
+      </div>
+
+      <div class="col-8">
+        <div class="form-group">
+          <label class="form-control-label">Status</label>
+          <select class="form-control" formControlName="Status">
+            <option>Active</option>
+            <option>InActive</option>
+          </select>
+        </div>
+      </div>
+      
+
+
+      <div class="col-8">
+        <input type="submit" class="addbtn" value="Save" />
+        <a routerLink="/admin/speaker" class="cancelbtn">Cancel</a>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Close</button>
+</div>

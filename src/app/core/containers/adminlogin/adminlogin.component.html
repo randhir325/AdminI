@@ -1,0 +1,123 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title header-form">Welcome to IPPAI (Please sign-in to manage the contents)</h5>
+          <form [formGroup]="loginForm" (submit)="Login()">
+            <div class="row space">
+              <div class="col-6">
+                <div class="row">
+
+                  <!-- <div class="col-12">
+                    <div class="form-group">
+                      <div *ngFor="let m of CheckData">
+                        <div *ngIf="m!='Shiv'">
+                          {{m}}
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <ng-container *ngFor="let m of CheckData">
+                        <div *ngIf="m!='Shiv'">
+                          {{m}}
+                        </div>
+
+                      </ng-container>
+                      <ng-container *ngTemplateOutlet="CompanyLogo"></ng-container>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <div *ngIf="shouldSayHello">Hello World</div>
+                      <ng-container *ngTemplateOutlet="CompanyLogo">
+                      </ng-container>
+                      <ng-template *ngIf="shouldSayHello then HelloWorld"></ng-template>
+                      <ng-template #HelloWorld>Hello World!!!</ng-template>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <ng-template #CompanyLogo>
+                        <img src="assets/image.jpg">
+                      </ng-template>
+                    </div>
+                  </div> -->
+
+                  <!-- <div class="col-12">
+                    <div class="form-group">
+                      <p>Result of binding to innerHTML:</p>
+                      <p class="e2e-inner-html-bound" [innerHTML]="htmlSnippet | safe: 'html'"></p>
+                      <p>{{htmlSnippet}}</p>
+                    </div>
+                  </div> -->
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Username</label>
+                      <input type="text" class="form-control" formControlName="UserName">
+                      <p style="color: red"
+                        *ngIf="loginForm.controls.UserName.errors?.required && loginForm.controls.UserName.touched">
+                        Required</p>
+
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Password</label>
+                      <input type="password" class="form-control" formControlName="Password">
+
+                      <!-- <p style="color: red" *ngIf="loginForm.get('Password').hasError('required') && loginForm.get('Password').touched">Required</p> -->
+                      <p class="bg-danger"
+                        *ngIf="loginForm.controls.Password.errors?.required && loginForm.controls.Password.touched">
+                        Password
+                        is required</p>
+                    </div>
+                  </div>
+
+
+                  <!-- <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Confirm Password</label>
+                      <input type="password" class="form-control" formControlName="confirmPassword">
+
+                     
+                      <p class="bg-danger"
+                        *ngIf="loginForm.controls.confirmPassword.errors?.required && loginForm.controls.confirmPassword.touched">
+                        Repeat
+                        password is required</p>
+                      <p class="bg-danger" *ngIf="loginForm.errors?.doesMatchPassword">Password does not match</p>
+
+
+                    </div>
+                  </div> -->
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <input type="submit" class="btns save-button" value="Save" />
+                <!-- <a routerLink="/admin/associatecategory" class="btns cancel-button">Cancel</a> -->
+              </div>
+            </div>
+          </form>
+          <div>
+            Valid: {{loginForm.valid}}
+          </div>
+          <pre>
+              {{loginForm.value|json}}              
+            </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

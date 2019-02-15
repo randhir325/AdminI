@@ -1,0 +1,117 @@
+<div id="wrapper" class="animate">
+  <nav class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <span class="navbar-toggler-icon leftmenutrigger"></span>
+      <div class="container">
+          <div class="row">
+              <div class="col-6">
+                  <a routerLink="/admin" class="navbar-brand">SWI</a>
+              </div>
+              <div class="col-6">
+                    <button (click)="logout()">Logout</button>
+                  <!-- <a class="navbar-brand clr">{{UserName}}</a> -->
+              </div>
+          </div>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav animate side-nav">
+              <li class="nav-item">
+                  <a routerLink="/admin/speaker" class="nav-link" title="Cart"><i class="fa fa-cart-plus"></i> Speaker
+                      <i class="fa fa-cart-plus shortmenu animate"></i></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/admin/article" title="Comment"><i class="fa fa-comment"></i> Article
+                      <i class="fa fa-comment shortmenu animate"></i></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/keyspeaker" title="Comment"><i class="fa fa-comment"></i> Key Speaker
+                    <i class="fa fa-comment shortmenu animate"></i></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/member" title="Comment"><i class="fa fa-comment"></i> Member
+                    <i class="fa fa-comment shortmenu animate"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/testimonial" title="Comment"><i class="fa fa-comment"></i> Testimonial
+                    <i class="fa fa-comment shortmenu animate"></i></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/powernews" title="Comment"><i class="fa fa-comment"></i> Power News
+                    <i class="fa fa-comment shortmenu animate"></i></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/associatecategory" title="Comment"><i class="fa fa-comment"></i> Associate Category
+                    <i class="fa fa-comment shortmenu animate"></i></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/associate" title="Comment"><i class="fa fa-comment"></i> Associate
+                    <i class="fa fa-comment shortmenu animate"></i></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/press" title="Comment"><i class="fa fa-comment"></i> Press
+                    <i class="fa fa-comment shortmenu animate"></i></a>
+            </li>
+
+            <li class="nav-item">
+                    <a class="nav-link" href="/admin/investor" title="Comment"><i class="fa fa-comment"></i> Investor's Guide
+                        <i class="fa fa-comment shortmenu animate"></i></a>
+                </li>
+
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/researchreport" title="Comment"><i class="fa fa-comment"></i> Research Report
+                    <i class="fa fa-comment shortmenu animate"></i></a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/researchreportcategory" title="Comment"><i class="fa fa-comment"></i> Research Publications Categories
+                    <i class="fa fa-comment shortmenu animate"></i></a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/policyrecommendation" title="Comment"><i class="fa fa-comment"></i> Policy Recommendations
+                    <i class="fa fa-comment shortmenu animate"></i></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/whatnew" title="Comment"><i class="fa fa-comment"></i> What's New
+                    <i class="fa fa-comment shortmenu animate"></i></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/wattswisdom" title="Comment"><i class="fa fa-comment"></i> Watts of Wisdom
+                    <i class="fa fa-comment shortmenu animate"></i></a>
+            </li>
+
+
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-user"></i> Associates <i class="fas fa-user shortmenu animate"></i>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">List of Associates</a>
+                      <a class="dropdown-item" href="#">Associate Categories</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+              </li>
+
+              
+
+          </ul>
+      </div>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

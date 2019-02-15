@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title header-text">List of Associates </h5>
+            <h5 class="card-title header-text right add-button">
+              <a routerLink="/admin/associate/associateform">Add Associate </a></h5>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Associate Name</th>  
+                  <th scope="col">Associate Url</th>  
+                  <th scope="col">Category Type</th>                
+                  <th scope="col">Status</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let asc of associateData;">
+                  <th scope="row">{{asc.AssociateID}}</th>
+                  <td>{{asc.AssociateName}}</td>
+                  <td>{{asc.AssociateUrl}}</td>
+                  <td>{{asc.categoryname}}</td>
+                  <td>{{asc.Status}}</td>
+                   <td>
+                   <!-- <a class="btn-def" (click)="view(spk.Speaker_ID)">
+                      <i class="fa fa-pencil"></i>View</a> -->
+                    <a class="btn-def" routerLink="/admin/associate/associateform/{{asc.AssociateID}}" >
+                      <i class="fa fa-pencil"></i>Edit</a>
+                    <a class="btn-def btn-clr-del" (clcik)="delete(asc.AssociateID)">
+                      <i class="fa fa-trash-o"></i>Delete</a></td>
+                </tr>
+                <tr>
+                  <td colspan="9" style="text-align: center;padding: 30px;">
+                    <div class="lod-position" *ngIf="loading">
+                      <div class="loadercss">
+                        <img src="../../../assets/loadergif.gif">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <!-- <tr>
+                  <td>
+                    <nav aria-label="Page navigation example">
+                      <ul class="pagination" *ngFor="let page of PageSize;">
+                        <li class="page-item"><a class="page-link" (click)="onClickPage(page)">{{page}}</a></li>
+                      </ul>
+                    </nav>
+                  </td>
+                </tr> -->
+              </tbody>
+            </table>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

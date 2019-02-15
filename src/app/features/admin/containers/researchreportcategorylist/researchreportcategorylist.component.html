@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title header-text">List of Research Publications Categories</h5>
+          <h5 class="card-title header-text right add-button">
+            <a routerLink="/admin/researchreportcategory/researchreportcategoryform">Add Research Publications Categories</a></h5>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Category Name</th>                
+                <th scope="col">Status</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let rrc of rrcategoryData;">
+                <th scope="row">{{rrc.categoryID}}</th>
+                <td>{{rrc.categegoryName}}</td>
+               
+                <td>{{rrc.status}}</td>
+                 <td>
+                 <!-- <a class="btn-def" (click)="view(spk.Speaker_ID)">
+                    <i class="fa fa-pencil"></i>View</a> -->
+                  <a class="btn-def" routerLink="/admin/researchreportcategory/researchreportcategoryform/{{rrc.categoryID}}" >
+                    <i class="fa fa-pencil"></i>Edit</a>
+                  <a class="btn-def btn-clr-del" (clcik)="delete(rrc.categoryID)">
+                    <i class="fa fa-trash-o"></i>Delete</a></td>
+              </tr>
+              <tr>
+                <td colspan="7" style="text-align: center;padding: 30px;">
+                  <div class="lod-position" *ngIf="loading">
+                    <div class="loadercss">
+                      <img src="../../../assets/loadergif.gif">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <!-- <tr>
+                <td>
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination" *ngFor="let page of PageSize;">
+                      <li class="page-item"><a class="page-link" (click)="onClickPage(page)">{{page}}</a></li>
+                    </ul>
+                  </nav>
+                </td>
+              </tr> -->
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

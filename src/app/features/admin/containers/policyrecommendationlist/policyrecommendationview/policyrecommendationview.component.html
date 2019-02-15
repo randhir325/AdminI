@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title header-form">Policy Recommendations Views</h5>
+          <div class="row space">
+            <div class="col-6">
+              <div class="row" *ngFor="let polView of PolicyRecsData">
+                <div class="col-12">
+                  <div class="form-group">
+                    <label type="text" class="form-control">{{polView.PolicyRecomName}}</label>
+                  </div>
+                  <div class="form-group">
+                    <label type="text" class="form-control">{{polView.PolicyRecomDetails}}</label>
+                  </div>
+                  <div class="form-group">
+                    <label type="text" class="form-control">{{polView.Status}}</label>
+                  </div>
+                  <div class="form-group">
+                    <label type="text" class="form-control">{{polView.PriorityDate}}</label>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="row">
+                  <form [formGroup]="policyrecommendationForm" >
+                <div class="col-12">
+                  <div class="form-group">
+                    <div class="file-field">
+                      <div class="btn-submit">
+                        <span style="color:#fff" for="fileupload">Browse</span>
+                        <input type="file" #FileInfo accept="application/vnd.ms-excel,
+                                    text/plain,
+                                    application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,
+                                    application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,
+                                    application/vnd.ms-powerpoint,
+                                    application/vnd.openxmlformats-officedocument.presentationml.presentation,
+                                    application/pdf,
+                                    image/jpeg,
+                                    image/png,
+                                    image/x-png,
+                                    image/pjpeg,
+                                    text/richtext"
+                          (change)="handleFileInput($event)" formControlName="PolicyRecompdf">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

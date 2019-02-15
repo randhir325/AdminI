@@ -1,0 +1,92 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title header-form">Add new Policy Recommendation</h5>
+          <form [formGroup]="policyrecommendationForm" (submit)="SavePolicyRecommendation()">
+            <div class="row space">
+              <div class="col-6">
+                <div class="row">
+
+                  
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Policy Recommendation Title</label>
+                      <input type="text" class="form-control" formControlName="PolicyRecomName">
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Policy Recommendation Details</label>
+                      <p-editor formControlName="PolicyRecomDetails" [style]="{'height':'120px'}"></p-editor>
+                    </div>
+                  </div>
+                  
+
+                  <!-- <div class="col-6">                    
+                        <div class="form-group">
+                          <div class="file-field">
+                            <div class="btn-submit">
+                              <span style="color:#fff" for="fileupload">Upload Policy Recommendation File</span>
+                              <input type="file" #FileInfo accept="application/vnd.ms-excel,
+                                          text/plain,
+                                          application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,
+                                          application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,
+                                          application/vnd.ms-powerpoint,
+                                          application/vnd.openxmlformats-officedocument.presentationml.presentation,
+                                          application/pdf,
+                                          image/jpeg,
+                                          image/png,
+                                          image/x-png,
+                                          image/pjpeg,
+                                          text/richtext"
+                                (change)="handleFileInput($event)" formControlName="PolicyRecompdf">
+                            </div>
+                          </div>                        
+                    </div>
+                  </div> -->
+
+
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Select date to set priority* (Speaker with Latest date comes
+                        first on the website)</label>
+                        <input type="text" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" class="form-control"
+                                  formControlName="PriorityDate">
+                     
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Status</label>
+                      <select class="form-control" formControlName="Status">
+                        <option>Active</option>
+                        <option>InActive</option>
+                      </select>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <input type="submit" class="btns save-button" value="Save" />
+                <a routerLink="/admin/policyrecommendation" class="btns cancel-button">Cancel</a>
+              </div>
+            </div>
+          </form>
+          <div>
+            Valid: {{policyrecommendationForm.valid}}
+          </div>
+          <pre>
+              {{policyrecommendationForm.value|json}}              
+            </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

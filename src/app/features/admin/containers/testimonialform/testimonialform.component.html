@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title header-form">Add Testimonial Details</h5>
+          <form [formGroup]="testimonialForm" (submit)="SaveTestimonial()">
+            <div class="row space">
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Testimonial Details</label>
+                      <p-editor formControlName="TestimonialDetails" [style]="{'height':'120px'}"></p-editor>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Testimonial By</label>
+                      <input type="text" class="form-control" formControlName="TestimonialBy">
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Testimonial Designation</label>
+                      <input type="text" class="form-control" formControlName="TestimonialDes">
+                    </div>
+                  </div>
+                  
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Status</label>
+                      <select class="form-control" formControlName="Status">
+                        <option>Active</option>
+                        <option>InActive</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label class="form-control-label">Image</label>
+                          <input type="file" class="form-control imgcss" (change)="fileChange($event)" formControlName="TestimonialImage">
+                          <img [src]="image" *ngIf="image">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>              
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <input type="submit" class="btns save-button" value="Save" />
+                <a routerLink="/admin/testimonial" class="btns cancel-button">Cancel</a>
+              </div>
+            </div>
+          </form>
+          <div>
+              Valid: {{testimonialForm.valid}}
+            </div>
+            <pre>
+              {{testimonialForm.value|json}}              
+            </pre>
+        </div>      
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title header-form">Add new Associate</h5>
+            <form [formGroup]="associateForm" (submit)="SaveAssociate()">
+              <div class="row space">
+                <div class="col-6">
+                  <div class="row">
+  
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label class="form-control-label">Associate Category</label>
+                        <select class="hideLabel form-control" formControlName="categoryid">
+                          <option selected="0" value="0">---Select Associate Category---</option>
+                          <option *ngFor="let assc of associateCategory" value={{assc.categoryid}}>
+                            {{ assc.categoryname }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+  
+                      
+  
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label class="form-control-label">Associate Name</label>
+                        <input type="text" class="form-control" formControlName="AssociateName">
+                      </div>
+                    </div>
+  
+                    
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label class="form-control-label">Associate Url</label>
+                        <input type="text" class="form-control" formControlName="AssociateUrl">
+                      </div>
+                    </div>
+  
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label class="form-control-label">Status</label>
+                        <select class="form-control" formControlName="Status">
+                          <option>Active</option>
+                          <option>InActive</option>
+                        </select>
+                      </div>
+                    </div>
+  
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <input type="submit" class="btns save-button" value="Save" />
+                  <a routerLink="/admin/associate" class="btns cancel-button">Cancel</a>
+                </div>
+              </div>
+            </form>
+            <div>
+              Valid: {{associateForm.valid}}
+            </div>
+            <pre>
+                {{associateForm.value|json}}              
+              </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

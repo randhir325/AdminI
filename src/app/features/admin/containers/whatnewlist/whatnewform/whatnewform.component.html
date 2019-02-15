@@ -1,0 +1,88 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title header-form">Add What's New</h5>
+          <form [formGroup]="whatnewForm" (submit)="SaveWhatNew()">
+            <div class="row space">
+              <div class="col-6">
+                <div class="row">
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">What's New Title</label>
+                      <input type="text" class="form-control" formControlName="NewTitle">
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">What's New Description</label>
+                      <p-editor formControlName="NewDescription" [style]="{'height':'120px'}"></p-editor>
+                    </div>
+                  </div>
+
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Venue</label>
+                      <input type="text" class="form-control" formControlName="NewVenue">
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Extrenal Link</label>
+                      <input type="text" class="form-control" formControlName="NewLink">
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">What's New Date</label>
+                      <input type="text" class="form-control" formControlName="NewEventDate">
+                    </div>
+                  </div>
+
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Post Date</label>
+                      <input type="text" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" class="form-control"
+                        formControlName="NewDate">
+
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Status</label>
+                      <select class="form-control" formControlName="Status">
+                        <option>Active</option>
+                        <option>InActive</option>
+                      </select>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <input type="submit" class="btns save-button" value="Save" />
+                <a routerLink="/admin/whatnew" class="btns cancel-button">Cancel</a>
+              </div>
+            </div>
+          </form>
+          <div>
+            Valid: {{whatnewForm.valid}}
+          </div>
+          <pre>
+              {{whatnewForm.value|json}}              
+            </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

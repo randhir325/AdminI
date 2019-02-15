@@ -1,0 +1,96 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title header-form">Add new Power News</h5>
+          <form [formGroup]="powernewsForm" (submit)="SavePowerNews()">
+            <div class="row space">
+              <div class="col-6">
+                <div class="row">   
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">News Title</label>
+                      <input type="text" class="form-control" formControlName="NewsTitle">
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">News Description</label>
+                      <p-editor formControlName="NewsDescription" [style]="{'height':'120px'}"></p-editor>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">News Short Description</label>
+                      <p-editor formControlName="NewsShortDescription" [style]="{'height':'120px'}"></p-editor>
+                    </div>
+                  </div>
+
+                  
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Extrenal Link</label>
+                      <input type="text" class="form-control" formControlName="NewsSource">
+                    </div>
+                  </div>
+
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Post Date</label>
+                      <input type="text" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" class="form-control"
+                                  formControlName="NewsDate">
+                      
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Publisher Details</label>
+                      <input type="text" class="form-control" formControlName="NewsAuthor">
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Select date to set priority* (Speaker with Latest date comes
+                        first on the website)</label>
+                        <input type="text" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" class="form-control"
+                                  formControlName="NewsPriority">
+                     
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Status</label>
+                      <select class="form-control" formControlName="Status">
+                        <option>Active</option>
+                        <option>InActive</option>
+                      </select>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <input type="submit" class="btns save-button" value="Save" />
+                <a routerLink="/admin/powernews" class="btns cancel-button">Cancel</a>
+              </div>
+            </div>
+          </form>
+          <div>
+            Valid: {{powernewsForm.valid}}
+          </div>
+          <pre>
+              {{powernewsForm.value|json}}              
+            </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

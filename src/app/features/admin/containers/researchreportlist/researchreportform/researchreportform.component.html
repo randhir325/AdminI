@@ -1,0 +1,102 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title header-form">Add new Research Publications</h5>
+          <form [formGroup]="publicationForm" (submit)="SavePublication()">
+            <div class="row space">
+              <div class="col-6">
+                <div class="row">
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Research Publication Category</label>
+                      <select class="hideLabel form-control" formControlName="categoryID">
+                        <option selected="0" value="0">---Select Research Publication Category---</option>
+                        <option *ngFor="let res of researchCatecory" value={{res.categoryID}}>
+                          {{ res.categegoryName }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Research Publications Year</label>
+
+                      <select class="form-control" formControlName="ReportYear">
+                        <option selected="0" value="0">---Select Year---</option>
+                        <option>2015</option>
+                        <option>2016</option>
+                        <option>2017</option>
+                        <option>2018</option>
+                      </select>
+
+                    </div>
+                  </div>
+
+
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Research Publication Title</label>
+                      <input type="text" class="form-control" formControlName="ResearchReportTitle">
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Research Publication Short Details</label>
+                      <input type="text" class="form-control" formControlName="ResearchReportShortDetails">
+                    </div>
+                  </div>
+
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label class="form-control-label">Research Publication Details</label>
+                      <p-editor formControlName="ResearchReportDetails" [style]="{'height':'120px'}"></p-editor>
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Select date to set priority* (Speaker with Latest date comes
+                        first on the website)</label>
+                      <input type="text" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" class="form-control"
+                        formControlName="PriorityDate">
+
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Status</label>
+                      <select class="form-control" formControlName="status">
+                        <option>Active</option>
+                        <option>InActive</option>
+                      </select>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <input type="submit" class="btns save-button" value="Save" />
+                <a routerLink="/admin/researchreport" class="btns cancel-button">Cancel</a>
+              </div>
+            </div>
+          </form>
+          <div>
+            Valid: {{publicationForm.valid}}
+          </div>
+          <pre>
+              {{publicationForm.value|json}}              
+            </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
