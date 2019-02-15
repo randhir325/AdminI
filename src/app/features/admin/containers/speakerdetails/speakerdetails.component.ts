@@ -15,7 +15,7 @@ import { Speakers } from 'src/app/features/admin/models/speakers';
 })
 export class SpeakerdetailsComponent implements OnInit {
   speakers: Speakers;
-  speakerForm1:FormGroup;
+  speakerForm1: FormGroup;
   speakerForm: FormGroup;
   bsConfig: Partial<BsDatepickerConfig>;
   constructor(private bsModalRef: BsModalRef,
@@ -33,46 +33,51 @@ export class SpeakerdetailsComponent implements OnInit {
     }
     this.getInitilizationFrom();
     this.getSpeakerValue();
-    
+
     console.log(this.speakers);
   }
 
-  getInitilizationFrom()
-  {
+  getInitilizationFrom() {
     this.speakerForm = this.fb.group({
       Speaker_ID: [],
       Speaker_name: [],
-      Speaker_designation:[],
-      Speaker_description:[],
-      Speaker_Priority: [],      
+      Speaker_designation: [],
+      Speaker_description: [],
+      Speaker_Priority: [],
       Status: []
     });
   }
 
-  getSpeakerValue()
-  {
-    this.speakerForm.patchValue({
-      Speaker_ID:this.speakers.Speaker_ID,
-            Speaker_name: this.speakers.Speaker_name,
-            Speaker_designation: this.speakers.Speaker_designation,
-            Speaker_description: this.speakers.Speaker_description,
-            Status: this.speakers.Status,
-            Speaker_Priority: this.speakers.Speaker_Priority,
-    });
+  getSpeakerValue() {
+    this.speakerForm.patchValue(this.speakers
+      //   {
+      //   Speaker_ID:this.speakers.Speaker_ID,
+      //         Speaker_name: this.speakers.Speaker_name,
+      //         Speaker_designation: this.speakers.Speaker_designation,
+      //         Speaker_description: this.speakers.Speaker_description,
+      //         Status: this.speakers.Status,
+      //         Speaker_Priority: this.speakers.Speaker_Priority,
+      // }
+    );
   }
 
   SaveSpeaker() {
-    if(this.speakerForm.valid)
-    {
+    if (this.speakerForm.valid) {
       debugger
-    this.speakerForm1 = Object.assign({}, this.speakerForm.value);
-    this.rest.post('Speaker/Post', this.speakerForm1).
-      subscribe(res => {
-        debugger;
-       // console.log(res);
-        this._alertify.success("Added Successfully!");
-        this.reset();
-      })
+      //this.speakerForm1 = Object.assign({}, this.speakerForm.value);
+      Object.assign(this.speakers, this.speakerForm.value);
+      this.rest.post('Speaker/Post', this.speakers).
+        subscribe(res => {
+          debugger;
+          // console.log(res);
+          this._alertify.success("Added Successfully!");
+          // this.speakers.Speaker_name=this.speakerForm.value.Speaker_name;
+          // this.speakers.Speaker_designation=this.speakerForm.value.Speaker_designation;
+          
+          let spk = this.speakers.Speaker_name;
+          this.reset();
+          this.bsModalRef.hide();
+        })
     }
   }
 
